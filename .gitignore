@@ -1,0 +1,16 @@
+.direnv
+.env
+.idea
+.phpunit.result.cache
+*.log
+clover.xml
+node_modules
+result*
+*.sav
+/.pre-commit-config.yaml
+/dist/
+/files/
+/build/
+/coverage/
+/var/
+/vendor/
