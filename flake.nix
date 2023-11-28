@@ -28,6 +28,7 @@
   }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      lib = pkgs.lib;
       src = gitignore.lib.gitignoreSource ./.;
 
       pre-commit-check = pre-commit-hooks.lib.${system}.run {
@@ -50,6 +51,8 @@
         shellHook = ''
           ${pre-commit-check.shellHook}
           export PATH="$PWD/node_modules/.bin:$PATH"
+          ln -srf ${lib.getExe pkgs.nodejs} .direnv/nodejs
+          ln -srf ${pkgs.nodejs}/bin/npm .direnv/npm
         '';
       };
 

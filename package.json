@@ -1,25 +1,52 @@
 {
   "name": "@jbboehr/oni-scripts",
   "version": "0.1.0",
+  "author": "",
+  "license": "AGPL-3.0",
   "description": "",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jbboehr/oni-scripts.git"
   },
-  "author": "",
-  "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/jbboehr/oni-scripts/issues"
+  "main": "",
+  "bin": {
+    "oni": "./bin/run.js"
   },
-  "homepage": "https://github.com/jbboehr/oni-scripts#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^4",
+    "fp-ts": "^2.16.1",
     "oni-save-parser": "^14.0.1"
   },
   "devDependencies": {
-    "typescript": "^5.3.2"
-  }
+    "@types/node": "^18",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "oclif": "^4.0.3",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "oclif": {
+    "bin": "oni",
+    "dirname": "oni",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {}
+  },
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "type": "module"
 }
